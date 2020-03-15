@@ -75,4 +75,47 @@ def get_sintef_formfaktor_param():
     ro_s = 1025 # ro_s = Density of salt water [kg/m^3]
     return (V_m, R_tm, V_s, ro_a, Cb, Ca, Tap_m, Tfp_m, Lwl_m, B_m, 
     S_m, Cd_m, H_m, At_m, v_m, ro_m, Tap_s, Tfp_s, Lwl_s, B_s, 
-    S_s, Cd_s, H_s, At_s, v_s, ro_s) 
+    S_s, Cd_s, H_s, At_s, v_s, ro_s)
+
+def get_holtrop_formfaktor_param():
+    # Results from towing test
+    V_m = np.array([1.666, 1.758, 1.84, 1.925, 2.005, 2.092, 2.182]) # V_m = Velocities used in towing test [m/s]
+    R_tm = np.array([32.167, 36.169, 40.27, 45.097, 50.2225, 56.859, 64.874]) # Resistances [N] for the corresponding velocities in V_m
+
+    # Velocities to be used for fullscale model
+    V_s = np.array([10.3,10.8,11.3,11.8,12.3,12.8,13.3]) # Velocities [m/s]
+
+    # Constants for the ship, independent of model/fullscale
+    ro_a = 1.25 # Density of air [kg/m^3]
+    Cb = 0.6039 # Block coefficient [-]
+    Cp = 0.6216 # Prismatic coefficient [-]
+    Ca = -0.23*10**(-3) # Correlation coefficient [-]
+
+    # Model values
+    Lwl_m = 5.999 # Lwl_m = Length of waterline [m]
+    B_m = 0.847 # B_m = Beam [m]
+    T_m = 0.289 # T_m = Draught [m]
+    ro_m = 1000 # ro_m = Density of freshwater [kg/m^3]
+    S_m = 6.374 # S_m = Wetted surface of hull [m^2]
+    v_m = 1.1395*10**(-6) # v_m = Kinematic viscosity [m^2/s]
+    Cd_m = 0.82 # Cd_m = Air drag coefficient [-]
+    H_m = 0 # H_m = Roughness height [micrometer]
+    At_m = 0.25 # At_m = Cross sectional area of hull over water [m^2]
+    L_cb_m = -2.236 # L_cb_m = Longitudinal center of buoyancy measured from 0.5L as percentage of L [% Lpp]
+    displ_m = 0.908 # displ_m = volume displacement [m^3]
+
+    # Fullscale ship values
+    Lwl_s = 227.953 # Lwl_m = Length of waterline [m]
+    B_s = 32.2 # B_m = Beam [m]
+    ro_s = 1025 # ro_m = Density of freshwater [kg/m^3]
+    S_s = 9203.9 # S_m = Wetted surface of hull [m^2]
+    v_s = 1.883*10**(-6) # v_m = Kinematic viscosity [m^2/s]
+    Cd_s = 0.82 # Cd_m = Air drag coefficient [-]
+    H_s = 150 # H_m = Roughness height [micrometer]
+    At_s = 850 # At_m = Cross sectional area of hull over water [m^2]
+
+    # Constant calculated from model values
+    L_r = Lwl_m *(1-Cp+0.06*Cp*L_cb_m/(4*Cp-1))
+    return (V_m, R_tm, V_s, ro_a, Cb, Cp, Ca, Lwl_m, B_m, T_m, ro_m, S_m, v_m, Cd_m, H_m
+    , At_m, L_cb_m, displ_m, Lwl_s, B_s, ro_s, S_s, v_s, Cd_s, H_s
+    , At_s, L_r)
