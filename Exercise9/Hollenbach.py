@@ -161,7 +161,7 @@ def hollenbach(Vsvec, L, Lwl, Los, B, TF, TA, CB, S, Dp, NRud, NBrac, NBoss, NTh
         P_E_minvec[cc] = P_E_min
 
         cc += 1
-    
+    '''
     # Plotting
     plt.figure()
     plt.plot(Vsvec*3600/1852, R_T_meanvec/1000, 'o-', label="mean")
@@ -172,7 +172,7 @@ def hollenbach(Vsvec, L, Lwl, Los, B, TF, TA, CB, S, Dp, NRud, NBrac, NBoss, NTh
     plt.legend()
 
     plt.show()
-
+    '''
     return np.array([Vsvec, R_T_meanvec, R_T_minvec, P_E_meanvec, P_E_minvec])
   
 

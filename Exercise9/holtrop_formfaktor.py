@@ -41,5 +41,5 @@ def holtrop_formfaktor(V_m, R_tm, V_s, ro_a, Cb, Cp, Ca, Lwl_m, B_m, T_m, ro_m, 
     oppg_b_matrix_2 = np.array([V_s, R_ns, C_fs, Dcf, C_ts, R_ts])
     oppg_b_matrix_2 = np.transpose(oppg_b_matrix_2)
 
-    return oppg_b_matrix_1, oppg_b_matrix_2
+    return oppg_b_matrix_1, oppg_b_matrix_2, k
 

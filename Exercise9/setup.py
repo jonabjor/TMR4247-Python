@@ -119,3 +119,15 @@ def get_holtrop_formfaktor_param():
     return (V_m, R_tm, V_s, ro_a, Cb, Cp, Ca, Lwl_m, B_m, T_m, ro_m, S_m, v_m, Cd_m, H_m
     , At_m, L_cb_m, displ_m, Lwl_s, B_s, ro_s, S_s, v_s, Cd_s, H_s
     , At_s, L_r)
+
+def get_prohaska_formfaktor_param():
+    # Results from towing test
+    V_m = np.array([1.666, 1.758, 1.84, 1.925]) # V_m = Velocities used in towing test [m/s]
+    R_tm = np.array([32.167, 36.169, 40.27, 45.097]) # Resistances [N] for the corresponding velocities in V_m
+
+    # Model parameters
+    Lwl_m = 5.999
+    v_m = 1.1395*10**(-6)
+    ro_m = 1000
+    S_m = 6.374
+    return (V_m, R_tm, Lwl_m, v_m, ro_m, S_m)

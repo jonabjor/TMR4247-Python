@@ -165,7 +165,7 @@ def holtrop(Vvec, T, B, L, S, CP, CM, CB, lcb, CW, voldispl, Abt, Tf, hb, At, H,
         Vcounter += 1
     
     Pvec = np.multiply(Rvec, Vvec)   # Propulsion power required for keeping the ship moving at the specific speed (without accounting for propeller losses)
-
+    '''
     # Figure 1
     plt.figure()
     plt.plot(FnVec, CWAVector)
@@ -181,7 +181,7 @@ def holtrop(Vvec, T, B, L, S, CP, CM, CB, lcb, CW, voldispl, Abt, Tf, hb, At, H,
         title = 'Total Resistance, Holtrops method')
 
     plt.show()
-
+    '''
     return np.array([Vvec, Rvec, Pvec])
     
             
