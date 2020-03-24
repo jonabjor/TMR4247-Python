@@ -9,3 +9,8 @@ Calculating ship resistance with the four following methods:
 * Model test - Holtrop form factor
 
 ![Comparison plot](Exercise9/oppgave_f.png)
+
+## Exercise 10 - Foil resistance calculations ##
+Calculating resistance on foil, where the following components is included:
+* Induced resistance (C_Di)
+* Viscous resistance (C_DV)
