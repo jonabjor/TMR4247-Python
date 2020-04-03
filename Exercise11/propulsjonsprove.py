@@ -62,7 +62,7 @@ def propulsjonsprove(Ktt_f, Kq_f, J_f):
     # Bruker beregnet Ktt fra propulsjonsprøven til å gå inn i friprøvediagram og lese av J0 og Kq0. 
     # Løser det ved hjelp av lineær interpolasjon av resultat fra friprøvediagram.
     J0, Kq0 = linregfriprove(Ktt_f, Kq_f, J_f, Ktt)
-    
+    Kq0 *= 10
     # Beregning av effektiv medstrøm
     wm = 1 - J0/J
 

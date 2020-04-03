@@ -55,11 +55,12 @@ def printeffektbehov(Vs, Jstar, Kqstar, rpm, Pd):
 def finnHastOgTurtall(Vs, rpm, Pd):
     fig = plt.figure()
     ax1 = fig.add_subplot(111)
-    ax1.plot(Vs, Pd, 'b-')
+    ax1.plot(Vs/0.5144, Pd, marker="x", color="red")
+    ax1.set_xlim([6,14])
     ax1.set_xlabel('Skipshastighet [knop]')
     ax1.set_ylabel('Akseleffekt [kW]')
 
     ax2 = ax1.twinx()
-    ax2.plot(Vs, rpm, marker="o")
+    ax2.plot(Vs/0.5144, rpm, marker="o")
     ax2.set_ylabel('Turtall [1/s]')
     plt.show()
